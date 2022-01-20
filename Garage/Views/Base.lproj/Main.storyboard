@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="p8b-s3-U5K" detailTextLabel="kNO-m0-Ib2" style="IBUITableViewCellStyleValue1" id="ewR-6k-SF9">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="carCell" textLabel="p8b-s3-U5K" detailTextLabel="kNO-m0-Ib2" style="IBUITableViewCellStyleValue1" id="ewR-6k-SF9">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ewR-6k-SF9" id="W3T-FA-bu5">
@@ -41,7 +41,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="KYF-4p-wsD" kind="show" identifier="toGarageDetails" id="AaH-Qm-3e1"/>
+                                    <segue destination="KYF-4p-wsD" kind="show" identifier="toCarDetails" id="AaH-Qm-3e1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="220" y="104"/>
         </scene>
-        <!--View Controller-->
+        <!--Car Detail View Controller-->
         <scene sceneID="WIZ-K2-v0I">
             <objects>
-                <viewController id="KYF-4p-wsD" sceneMemberID="viewController">
+                <viewController id="KYF-4p-wsD" customClass="CarDetailViewController" customModule="Garage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wqm-JZ-kc5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,6 +92,10 @@
                                         <rect key="frame" x="0.0" y="165" width="374" height="216"/>
                                     </pickerView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="3wP-2I-DR1" secondAttribute="trailing" id="Wce-QI-F4u"/>
+                                    <constraint firstItem="3wP-2I-DR1" firstAttribute="height" secondItem="CD1-Yi-P3u" secondAttribute="height" id="c2B-fK-6rZ"/>
+                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ra5-H0-44d">
                                 <rect key="frame" x="20" y="821" width="374" height="31"/>
@@ -102,6 +106,9 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Clear"/>
+                                        <connections>
+                                            <action selector="clearButtonTapped:" destination="KYF-4p-wsD" eventType="touchUpInside" id="i37-hC-LWU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QI-7T-kYe">
                                         <rect key="frame" x="192" y="0.0" width="182" height="31"/>
@@ -109,6 +116,9 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="DELETE"/>
+                                        <connections>
+                                            <action selector="deleteButtonTapped:" destination="KYF-4p-wsD" eventType="touchUpInside" id="vig-9i-Fow"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -124,7 +134,19 @@
                             <constraint firstItem="UOG-0R-daj" firstAttribute="bottom" secondItem="Ra5-H0-44d" secondAttribute="bottom" constant="10" id="tgq-i0-kOK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="JI2-tI-U66"/>
+                    <navigationItem key="navigationItem" id="JI2-tI-U66">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="X8Y-ds-yGJ">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="KYF-4p-wsD" id="t8z-Gq-931"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="carTypePicker" destination="xf6-u1-Zmj" id="XqY-VM-rEc"/>
+                        <outlet property="makeTextField" destination="3wP-2I-DR1" id="Uxa-27-xnE"/>
+                        <outlet property="modelTextField" destination="CD1-Yi-P3u" id="e0f-N0-bHk"/>
+                        <outlet property="yearTextField" destination="SgB-l0-LVz" id="vAs-OJ-aKL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLC-49-hDS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
