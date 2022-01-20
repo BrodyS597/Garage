@@ -71,7 +71,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="sUY-2L-Vhw">
-                                <rect key="frame" x="20" y="98" width="374" height="381"/>
+                                <rect key="frame" x="20" y="98" width="374" height="144"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3wP-2I-DR1">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -88,9 +88,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xf6-u1-Zmj">
-                                        <rect key="frame" x="0.0" y="165" width="374" height="216"/>
-                                    </pickerView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="3wP-2I-DR1" secondAttribute="trailing" id="Wce-QI-F4u"/>
@@ -142,7 +139,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="carTypePicker" destination="xf6-u1-Zmj" id="XqY-VM-rEc"/>
                         <outlet property="makeTextField" destination="3wP-2I-DR1" id="Uxa-27-xnE"/>
                         <outlet property="modelTextField" destination="CD1-Yi-P3u" id="e0f-N0-bHk"/>
                         <outlet property="yearTextField" destination="SgB-l0-LVz" id="vAs-OJ-aKL"/>

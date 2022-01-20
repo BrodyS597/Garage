@@ -13,8 +13,7 @@ class CarDetailViewController: UIViewController {
     @IBOutlet weak var makeTextField: UITextField!
     @IBOutlet weak var modelTextField: UITextField!
     @IBOutlet weak var yearTextField: UITextField!
-    @IBOutlet weak var carTypePicker: UIPickerView!
-    
+   // @IBOutlet weak var carTypePicker: UIPickerView! //(sender.tag)
     
     // MARK: - Properties
     var car: Car? = nil
